@@ -10,9 +10,11 @@
             return {
                 initialize: function(api, state) {
                     const observer = new MutationObserver(mutations => {
+                        console.log("Inside mutator...");
                         const logoElement = document.querySelector('.geo-main-menu__logo--image');
                         if (logoElement) {
                             try {
+                                console.log("Working...");
                                 const style = document.createElement('style');
                                 style.textContent = `
                                     .geo-main-menu__logo--image {
