@@ -9,21 +9,31 @@
         geotab.addin.customLogo = function(api, state) {
             return {
                 initialize: function(api, state) {
-                    try {
-                        // Create a style element to modify the logo
-                        const style = document.createElement('style');
-                        style.textContent = `
-                            .geo-main-menu__logo--image {
-                                background-image: url('https://traxxisgps.com/wp-content/uploads/elementor/thumbs/Traxxis-refresh-logo_horizontal-min-1-qjgvd5cr9kxu5eay6trn10pbylz31ardqnqdluuew0.webp') !important;
-                                background-size: contain;
-                                background-repeat: no-repeat;
-                                background-position: center;
+                    const observer = new MutationObserver(mutations => {
+                        const logoElement = document.querySelector('.geo-main-menu__logo--image');
+                        if (logoElement) {
+                            try {
+                                const style = document.createElement('style');
+                                style.textContent = `
+                                    .geo-main-menu__logo--image {
+                                        background-image: url('https://traxxisgps.com/wp-content/uploads/elementor/thumbs/Traxxis-refresh-logo_horizontal-min-1-qjgvd5cr9kxu5eay6trn10pbylz31ardqnqdluuew0.webp') !important;
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                        background-position: center;
+                                    }
+                                `;
+                                document.head.appendChild(style);
+                                observer.disconnect(); // Stop observing once the element is found
+                            } catch (error) {
+                                console.error('Logo add-in initialization error:', error);
                             }
-                        `;
-                        document.head.appendChild(style);
-                    } catch (error) {
-                        console.error('Logo add-in initialization error:', error);
-                    }
+                        }
+                    });
+
+                    observer.observe(document.body, { // Observe changes to the body
+                        childList: true,
+                        subtree: true
+                    });
                 }
             };
         };
