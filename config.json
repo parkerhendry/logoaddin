@@ -1,0 +1,13 @@
+{
+    "name": "Custom Logo Add-in",
+    "supportEmail": "support@traxxisgps.com",
+    "version": "1.0.0",
+    "description": "Replaces default Geotab logo with Traxxis logo",
+    "author": "Parker Hendry (TraxxisGPS)",
+    "items": [
+        {
+            "url": "https://parkerhendry.github.io/logo-addin/index.html",
+            "path": "ActivityLink"
+        }
+    ]
+}
