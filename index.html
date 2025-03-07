@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Custom Logo Add-in</title>
-    <link rel="stylesheet" href="https://my.geotab.com/geotab/checkmate/main.css">
 </head>
 <body>
     <script>
@@ -25,9 +24,11 @@
         }
 
         // Call changeLogo when the page loads
-        window.onload = changeLogo;
+        window.onload = function() {
+            setTimeout(changeLogo, 500); // 500 milliseconds delay
+        };
         console.log("Loaded!");
-        console.log(document.head);
+        console.log(document.head.ownerDocument);
         console.log(document.body);
     </script>
 </body>
