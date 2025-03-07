@@ -6,6 +6,7 @@
     "author": "Parker Hendry (TraxxisGPS)",
     "items": [
         {
+            "category": "AddIns",
             "url": "https://parkerhendry.github.io/logo-addin/index.html",
             "menuName": {
                 "en": "Change Logo"
