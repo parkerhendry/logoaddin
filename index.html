@@ -5,34 +5,23 @@
 </head>
 <body>
     <script>
-        //function changeLogo() {
-            try {
-                console.log("Trying...");
-                const style = document.createElement('style');
-                style.textContent = `
-                    .geo-main-menu__logo--image {
-                        background-image: url('https://traxxisgps.com/wp-content/uploads/elementor/thumbs/Traxxis-refresh-logo_horizontal-min-1-qjgvd5cr9kxu5eay6trn10pbylz31ardqnqdluuew0.webp') !important;
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        background-position: center;
-                    }
-                `;
-                document.head.appendChild(style);
-                console.log("Logo change attempted");
-            } catch (error) {
-                console.error('Logo change failed:', error);
-            }
-        //}
+        try {
+            console.log("Trying...");
+            const style = document.createElement('style');
+            style.textContent = `
+                .geo-main-menu__logo--image {
+                    background-image: url('https://traxxisgps.com/wp-content/uploads/elementor/thumbs/Traxxis-refresh-logo_horizontal-min-1-qjgvd5cr9kxu5eay6trn10pbylz31ardqnqdluuew0.webp') !important;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            `;
+            document.head.appendChild(style);
+            console.log("Logo change attempted");
+        } catch (error) {
+            console.error('Logo change failed:', error);
+        }
 
-        /*
-        // Call changeLogo when the page loads
-        window.onload = function() {
-            setTimeout(changeLogo, 5000); // 500 milliseconds delay
-        };
-        */
-        console.log("Loaded!");
-        console.log(document.head.ownerDocument);
-        console.log(document.body);
     </script>
 </body>
 </html>
