@@ -5,7 +5,7 @@
 </head>
 <body>
     <script>
-        function changeLogo() {
+        //function changeLogo() {
             try {
                 const style = document.createElement('style');
                 style.textContent = `
@@ -21,12 +21,14 @@
             } catch (error) {
                 console.error('Logo change failed:', error);
             }
-        }
+        //}
 
+        /*
         // Call changeLogo when the page loads
         window.onload = function() {
             setTimeout(changeLogo, 5000); // 500 milliseconds delay
         };
+        */
         console.log("Loaded!");
         console.log(document.head.ownerDocument);
         console.log(document.body);
