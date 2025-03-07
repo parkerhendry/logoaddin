@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Minimal Test Add-in</title>
+    <title>Custom Logo Add-in</title>
     <script src="https://cdn.jsdelivr.net/npm/@geotab/api@3.0.1/dist/geotab.min.js"></script>
 </head>
 <body>
     <script>
-        console.log("Add-in script started.");
-
-        geotab.addin.minimalTest = function(api, state) {
+        geotab.addin.customLogo = function(api, state) {
             return {
                 initialize: function(api, state) {
                     console.log("Add-in initialized.");
+                },
+                buttonClick: function(api, state) {
+                    console.log("Button clicked.");
+                    try {
+                        const style = document.createElement('style');
+                        style.textContent = `
+                            .geo-main-menu__logo--image {
+                                background-image: url('https://traxxisgps.com/wp-content/uploads/elementor/thumbs/Traxxis-refresh-logo_horizontal-min-1-qjgvd5cr9kxu5eay6trn10pbylz31ardqnqdluuew0.webp') !important;
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+                        `;
+                        document.head.appendChild(style);
+                        console.log("Logo change attempted");
+                    } catch (error) {
+                        console.error('Logo change failed:', error);
+                    }
                 }
             };
         };
-
-        console.log("Add-in script ended.");
     </script>
 </body>
 </html>
